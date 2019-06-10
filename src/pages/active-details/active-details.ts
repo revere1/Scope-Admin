@@ -49,7 +49,7 @@ export class ActiveDetailsPage {
    headers.append("Accept", 'application/json');
    headers.append('Content-Type', 'application/json');
    let options = new RequestOptions({ headers: headers });
-   const getApiUrl: string = `${Global.url}customerbookings/cancel/${this.details.id_user}/${this.details.id_book_services}`;
+   const getApiUrl: string = `${Global.url}admin/closeBooking/${this.bookId}`;
    this.http.patch(getApiUrl, options).subscribe(
      getData =>{
        var closeOrderDetails = getData.json();

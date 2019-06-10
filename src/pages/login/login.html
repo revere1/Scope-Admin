@@ -16,20 +16,19 @@
 
 <ion-content class="no-scroll">
   <img src="../../assets/imgs/bike1.jpg" class="img-position">
-    <form [formGroup]="signInForm" (ngSubmit)="signIn()">
-      <ion-list no-lines>
-        <ion-item>
-          <ion-label floating>Enter Your Mobile Number</ion-label>
-          <ion-input type="number" formControlName="mobile_number"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Enter Your Password</ion-label>
-          <ion-input type="text" formControlName="password"></ion-input>
-        </ion-item>
-        <button ion-button round full [disabled]="!signInForm.valid">Login</button>
-        <br>
-      </ion-list>
-    </form>
-    <button ion-button round (click)="login()">Login</button>
+  <form [formGroup]="signInForm" (ngSubmit)="signIn()">
+    <br>
+    <ion-input class="center" style="color: black;" type="number" placeholder="Enter Your Mobile Number" formControlName="mobile_number"></ion-input>
+    <div class="error">
+      <p *ngIf="signInForm.controls.mobile_number.hasError('required') && signInForm.controls.mobile_number.touched">
+        mobile number is required!</p>
+      <p *ngIf="signInForm.controls.mobile_number.hasError('minlength') && signInForm.controls.mobile_number.touched">
+        minimum mobile number length is 10!</p>
+      <p *ngIf="signInForm.controls.mobile_number.hasError('maxlength') && signInForm.controls.mobile_number.touched">
+        maximum mobile number length is 10!</p>
+    </div>
+    <button ion-button round color="blue" [disabled]="!signInForm.valid">Login</button>
+    <br>
+  </form>
 
 </ion-content>

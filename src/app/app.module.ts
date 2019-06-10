@@ -12,14 +12,17 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
 import { TabsPage } from '../pages/tabs/tabs';
+import { OtpPage } from '../pages/otp/otp';
 import { ActiveDetailsPage } from '../pages/active-details/active-details';
 import { CloseOrdersPage } from '../pages/close-orders/close-orders';
+
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage, LoginPage, TabsPage, ListPage, ActiveDetailsPage, CloseOrdersPage
+    HomePage, LoginPage, TabsPage, ListPage, ActiveDetailsPage, CloseOrdersPage, OtpPage
   ],
   imports: [
     BrowserModule,HttpModule,ReactiveFormsModule, FormsModule,
@@ -28,11 +31,12 @@ import { CloseOrdersPage } from '../pages/close-orders/close-orders';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage, LoginPage, TabsPage, ListPage, ActiveDetailsPage, CloseOrdersPage
+    HomePage, LoginPage, TabsPage, ListPage, ActiveDetailsPage, CloseOrdersPage, OtpPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    NativeStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
